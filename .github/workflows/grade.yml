@@ -8,53 +8,51 @@
 # providing the workflow with access to the instructor's solution), your instructors will
 # be notified of this security violation.
 
+# To the instructor: You *can* edit this file easily before the assignment is released and
+# student repos have been created. If you make changes after student repos have been created,
+# Pawtograder can automatically update student repos for you, but it also makes a nucance for 
+# students who have to do an extra `git pull` before their next `push`.
+
 name: Submit Assignment and Run Grader
 permissions:
   id-token: write
   contents: read
+
 on:
   # Required for Pawtograder to create a submission, do not remove
   workflow_dispatch:
 
   # To change the behavior of submitting on every push (vs just when commit has message
-  # submit or when the submission is manually requested), change this:
+  # submit or when the submission is manually requested)
   push:
-    branches:
-      - main
+   branches:
+     - main
 
 jobs:
   grade:
     name: Submit and Grade Assignment
-    runs-on: khoury-course-runners
-    # khoury-course-runners provides 1CPU, 1.5GB RAM
-    # khoury-course-runners-md provides 2CPU, 3GB RAM
-    # khoury-course-runners-lg provides 4CPU, 6GB RAM
-
-    # Using more resources will limit concurrency, so use the smallest resource class that
-    # can handle the workload.
-
+    runs-on: khoury-course-runners #Prod
     steps:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
         with:
           path: submission
-      # The base image does NOT have Java, Python etc. So install what you need here, e.g.:
-      - name: Install Java
-        uses: actions/setup-java@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          distribution: 'temurin' 
-          java-version: '21'
-      # - name: Install Python
-      #   uses: actions/setup-python@v4
-      #   with:
-      #     python-version: '3.10'
-      #     cache: 'pip'
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        working-directory: submission
+        run: |
+          python -m pip install --upgrade pip
+
       - name: Collect Submission and Run Grader
-        uses: pawtograder/assignment-action@v3 # Update version here
+        uses: pawtograder/assignment-action@main
         with:
           grading_server: 'https://api.pawtograder.com'
+          handout_repo: 'neu-cs2100/fa25-hw2-testing-handout'
           action_ref: '${{ github.action_ref }}'
           action_repository: '${{ github.action_repository }}'

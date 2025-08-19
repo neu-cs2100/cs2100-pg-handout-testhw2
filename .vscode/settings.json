@@ -20,5 +20,5 @@
         "--explicit-package-bases"
     ],
     "mypy-type-checker.importStrategy": "useBundled",
-    "mypy-type-checker.showNotifications": "onError"
+    "mypy-type-checker.showNotifications": "onError", 
 }

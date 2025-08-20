@@ -35,6 +35,10 @@ Remember: when testing, we want to consider:
 - any invalid inputs
 - any edge cases (almost invalid but still valid)
 
+
+You may ignore any linting errors in the src files for this assignment: the autograder will only check for linting errors in your test files, as you will only be writing tests in this assignment, and the (unimplemented) src files are provided only as a specification to write tests. 
+
+
 ### Part 2: Test DataLoader
 
 There are some test method stubs provided in `test_data_loader.py`. Implement all of the required tests.

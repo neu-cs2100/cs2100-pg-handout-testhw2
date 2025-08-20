@@ -9,7 +9,6 @@ import pandas as pd
 class CaseSorter:
     """
     Class for sorting and ranking 311 cases.
-    Contains intentional bugs for students to find and fix.
     """
 
     def __init__(self) -> None:

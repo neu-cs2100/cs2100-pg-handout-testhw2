@@ -34,9 +34,9 @@ You will write tests for two classes: `DataLoader` and `Sorting`. The stub imple
 Look at these two classes and take note of cases that would be good to test.
 
 Remember: when testing, we want to consider:
-- the "happy path" with valid input
-- any invalid inputs
-- any edge cases (almost invalid but still valid)
+- the "happy path"
+- any negative cases
+- any edge cases (almost negative but still valid)
 
 
 You may ignore any linting errors in the src files for this assignment: the autograder will only check for linting errors in your test files, as you will only be writing tests in this assignment, and the (unimplemented) src files are provided only as a specification to write tests. 
@@ -67,13 +67,5 @@ In this assignment, you will not be provided or required to complete implementat
 
 You may however run `python3 test_runner.py` to make sure your tests are being detected correctly (even though they will all fail due to unimplemented classes/methods)
 
-
-## Generating Coverage reports
-Again, as with testing, you will not have the src code, so there isn't really any point in generating/checking the coverage reports, you may ignore them for this assignment.
-
-## Grading Rubric
-- Implementing the test stubs in `TestDataLoader` (30%)
-- Catching our hidden bugs using `TestCaseSorter` (35%)
-- Summary.md (35%)
 
 Good luck!

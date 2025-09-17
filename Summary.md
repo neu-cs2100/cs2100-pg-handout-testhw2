@@ -14,6 +14,11 @@ The following table discusses the data being tested: 311 service requests. We wi
 | What principles govern the collection and transmission of the information? | 311 service requests are often the most efficient way to access necessary services, and it is possible to unintentionally leak personal info while making a request. |
 
 [10 points]  
+
+Then, please answer these two questions:
+1. Who is one potential unintended recipient of this data?
+2. How might this housing application be redesigned to minimize the number of unintended recipients of that information?
+
 *Answer:*
 
 ---
@@ -67,8 +72,4 @@ The following table discusses the data being tested: 311 service requests. We wi
 [8 points]   
 *Answer:*  
 
----
 
-Then, please answer these two questions:
-1. Who is one potential unintended recipient of this data?
-2. How might this housing application be redesigned to minimize the number of unintended recipients of that information?

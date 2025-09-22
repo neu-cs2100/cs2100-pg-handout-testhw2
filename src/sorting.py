@@ -40,7 +40,7 @@ class CaseSorter:
             
         Returns:
             Dict[str, int]: Dictionary mapping categories to urgency scores 
-                           (1 = most urgent, higher = less urgent)
+                           (1 = least urgent, higher = more urgent)
 
             Each category in the dataset is assigned a score which is the 
             number of times it appears in the dataset.
